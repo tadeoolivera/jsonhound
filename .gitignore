@@ -1,0 +1,9 @@
+# uv / virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# jsonhound local state
+saved.json

@@ -1,0 +1,18 @@
+[project]
+name = "jsonhound"
+version = "0.1.0"
+description = "Sniff out changes in JSON APIs."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx2>=2.0.0b1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

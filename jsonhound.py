@@ -1,4 +1,4 @@
-import httpx
+import httpx2
 import json
 import argparse
 import sys
@@ -66,7 +66,7 @@ def main():
     sys.stderr.flush()
     t0 = time.time()
     try:
-        res = httpx.get(args.url, timeout=args.timeout)
+        res = httpx2.get(args.url, timeout=args.timeout)
         res.raise_for_status()
         raw = res.json()
     except Exception as e:
@@ -79,7 +79,7 @@ def main():
 
     if isinstance(raw, list):
         try:
-            current = {obj[args.key]: obj for obj in raw}
+            current = {str(obj[args.key]): obj for obj in raw}
         except KeyError:
             print(f"{color('Error', RED)} key '{args.key}' not found in list items", file=sys.stderr)
             sys.exit(1)
@@ -107,9 +107,9 @@ def main():
     modified_ids = [i for i in (cur_ids & prev_ids) if prev[i] != current[i]]
 
     if not prev:
-        print(f"\n{color('First run', CYAN)} — saved initial state.")
+        print(f"\n{color('First run', CYAN)} (saved initial state).")
     elif not (new_ids or removed_ids or modified_ids):
-        print(f"\n{color('No changes', GREEN)} — {len(current)} item(s) up to date.")
+        print(f"\n{color('No changes', GREEN)} - {len(current)} item(s) up to date.")
     else:
         if new_ids:
             print(f"\n{color('+' + str(len(new_ids)), GREEN)} new:")
