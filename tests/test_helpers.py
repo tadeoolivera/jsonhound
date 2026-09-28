@@ -2,7 +2,6 @@
 
 import jsonhound
 
-
 class TestFmt:
     def test_short_string_unchanged(self):
         assert jsonhound.fmt("hello") == "hello"

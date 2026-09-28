@@ -1,8 +1,8 @@
 # jsonhound
 
 [![CI](https://github.com/tadeoolivera/jsonhound/actions/workflows/ci.yml/badge.svg)](https://github.com/tadeoolivera/jsonhound/actions/workflows/ci.yml)
-
-Sniff out changes in JSON APIs.
+´
+![jsonhound banner](https://raw.githubusercontent.com/tadeoolivera/jsonhound/main/assets/banner_jsonhound.jpeg)
 
 A lean CLI tool that fetches JSON from an HTTP endpoint, remembers the last state, and barks when something's new, removed, or modified (with color-coded field-level diffs).
 
